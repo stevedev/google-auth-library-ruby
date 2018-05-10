@@ -58,7 +58,7 @@ module Google
         if json_key_io
           private_key, client_email = read_json_key(json_key_io)
         else
-          private_key = ENV[CredentialsLoader::PRIVATE_KEY_VAR]
+          private_key = ENV[CredentialsLoader::PRIVATE_KEY_VAR].gsub('\n', "\n")
           client_email = ENV[CredentialsLoader::CLIENT_EMAIL_VAR]
         end
 
